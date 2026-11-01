@@ -1,7 +1,16 @@
 """Streamlit application entry point for Resume Analyser."""
 
 import logging
+import sys
+from pathlib import Path
 from uuid import uuid4
+
+# Ensure the repository root directory is on sys.path so the 'app' package
+# is resolvable regardless of execution context or working directory
+# (e.g. Streamlit Community Cloud launching from subdirectories).
+_ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(_ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(_ROOT_DIR))
 
 import streamlit as st
 
